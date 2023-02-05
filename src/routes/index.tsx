@@ -1,6 +1,7 @@
 import "./index.css";
 
 export default function Home() {
+  
 	return (
 		<div>
 			<h1 class="style title"> Solid Query</h1>
@@ -26,7 +27,6 @@ export default function Home() {
         </ul>
 				</div>
          <div class="tags">
-					<h1 class="style">labels</h1>
               <ul class="tags-list">
                   <div class="tag-element feature">
                     <small> feature </small>
@@ -38,7 +38,12 @@ export default function Home() {
                     <small> bugs </small>
                     </div>
                 </ul>
-                 
+          <select class="issue-select" >
+          <option value="all"> select a type</option>
+          <option  value="feature">feature</option>
+          <option value="rnd">rnd</option>
+          <option value="bugs">bugs</option>
+          </select>
 
 				</div>
 

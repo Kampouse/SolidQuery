@@ -32,15 +32,24 @@ main {
 }
  .tags {
   margin:0;
-   border:  solid 1px #5979a0;
   padding:0;
   width: 13.5em;
+  gap: 0.5rem;
   list-style: none;
   display: flex;
   flex-direction: column;
   border-radius:  0.25rem;
   margin-top: 0.6em;
-
+}
+.issue-select {
+  background: #9fabba;
+  border : solid 1px #ccc;
+   border-radius:  0.25rem;
+  width:  10em;
+  height: 2em;
+  color : #2e506f;
+  text-align: center;
+  align-self: center;
 }
  .tags h1 {
    padding: 0.5rem; 
@@ -49,7 +58,6 @@ main {
  .tags-list {
   padding: 0;
   margin:0;
-  padding-bottom: 1.5em;
   list-style: none;
   display: flex;
   flex-direction: row;
