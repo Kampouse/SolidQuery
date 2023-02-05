@@ -45,8 +45,9 @@ export default function Home() {
           <option value="bugs">bugs</option>
           </select>
 
+         <hr/>
+          <button class="issue-button"> add issue </button>
 				</div>
-
 							</main>
 		</div>
 	);
