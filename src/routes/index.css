@@ -1,0 +1,208 @@
+body {
+  font-family: Gordita, Roboto, Oxygen, Ubuntu, Cantarell,
+    'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+main {
+	text-align: center;
+	padding: 1rem;
+	margin: 2rem auto auto 3rem;
+	gap: 2rem;
+  display: flex;
+}
+.style {
+  color: #335d92;
+  font-weight: 100;
+  margin: 0em;
+}
+.issue-main {
+  width: 36em;
+}
+.title {
+  text-transform: uppercase;
+  text-decoration-line: underline;
+  font-size: 4rem;
+  line-height: 1.1;
+}
+.style-head {
+   text-align: left;
+    margin-bottom : 0.1em;
+    margin-left: 2.3rem;
+
+}
+ .tags {
+  margin:0;
+   border:  solid 1px #5979a0;
+  padding:0;
+  width: 13.5em;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  border-radius:  0.25rem;
+  margin-top: 0.6em;
+
+}
+ .tags h1 {
+   padding: 0.5rem; 
+}
+ 
+ .tags-list {
+  padding: 0;
+  margin:0;
+  padding-bottom: 1.5em;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.7rem;
+  width: 100%;
+  max-width: 65ch;
+ }
+.tag-element {
+  color: #fdfefe;
+  display: table;
+  vertical-align: middle;
+  padding-top: 0.4rem;
+  padding: 0.5rem;
+  width: fit-content;
+  min-width: 2.5em;
+  border-radius: 0.5rem;
+  vertical-align: middle;
+  text-align: center;
+}
+
+
+.tag-element.bugs {
+  background-color: rgba(255, 0, 0,0.5);
+   color : #fdfefe;
+
+}
+.tag-element.bugs:hover {
+  background-color: rgba(255, 0, 0,0.8);
+  color : #fdfefe;
+  transform:  scale(1.1);
+  transition: all 0.2s ease-in-out;
+}
+
+.tag-element.feature {
+  background-color: rgba(46, 204, 113, 0.5);
+  color : #fdfefe;
+}
+ .tag-element.tag-element.feature:hover {
+  background-color: rgba(46, 204, 113, 0.8);
+  color : #fdfefe;
+  transform:  scale(1.1);
+  transition: all 0.2s ease-in-out;
+ }
+.tag-element.rnd {
+  background-color: rgba(241, 196, 15,0.5);
+  color : #fdfefe;
+}
+.tag-element.rnd:hover {
+  background-color: rgba(241, 196, 15,0.8);
+  color : #fdfefe;
+  transform:  scale(1.1);
+  transition: all 0.2s ease-in-out;
+}
+
+ .issue-search {
+
+    display: flex;
+    flex-direction: column;
+  margin: 0 auto;
+   }
+.issue-search h2 {
+  font-size: 1.2em;
+  font-weight: 200;
+  text-align: left;
+  margin: 0;
+  margin-left: 2em;
+} 
+.issue-search input {
+  padding: 0.5rem;
+  font-size: 1.2em;
+  border: 1px solid #ccc;
+  background-color: #607c9f6b;
+  border-radius: 4px;
+  margin-left: 1.9em;
+  margin-top : 0.5em;
+  color: #2e506f;
+}
+.issues-list {
+  padding: 0;
+  margin:0;
+  margin-right: 2em;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  width: 100%;
+  max-width: 65ch;
+}
+ .issues-list li {
+  padding: 0.5rem;
+  border: solid 1px #aaa;
+  background-color: #445c76;
+  color: #fdfefe;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-family: proxima-nova, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
+    margin-left: 1.9em;
+
+ }
+
+ .issues-list li:hover {
+  padding: 0.5rem;
+  border: solid 1px #aaa;
+  background-color: #202c38;
+  color: #fdfefe;
+  border-radius: 0.25rem;
+  font-size: 1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  font-family: proxima-nova, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, Helvetica Neue, sans-serif;
+  transition: 0.5s;
+ }
+.issue {
+  display: flex;
+  flex-direction: column;
+  align-content: left;
+  gap: 0.5rem;
+  width: 100%;
+  max-width: 65ch;
+}
+.issue span {
+  font-weight: 200;
+  color: #fff;
+  align-self: start;
+}
+.issue small {
+  font-size: 0.8em;
+  font-weight: 200;
+  color: #fff;
+  align-self: start;
+}
+.labels {
+  border: solid 1px  #202c38;
+
+}
+p {
+  max-width: 14rem;
+  margin: 2rem auto;
+  line-height: 1.35;
+}
+
+@media (min-width: 480px) {
+  h1 {
+    max-width: none;
+  }
+
+  p {
+    max-width: none;
+  }
+}
