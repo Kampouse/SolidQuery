@@ -110,7 +110,19 @@ main {
   vertical-align: middle;
   text-align: center;
 }
-
+.list {
+   padding: 0.15rem;
+}
+ .tagged-list {
+  padding: 0;
+  margin:0;
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  gap: 0.3rem;
+  width: 100%;
+  max-width: 65ch;
+ }
 
 .tag-element.bugs {
   background-color: rgba(255, 0, 0,0.5);
