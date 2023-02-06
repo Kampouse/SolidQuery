@@ -1,11 +1,13 @@
 import { onMount,Signal,createSignal, Suspense } from "solid-js";
+ import { client } from "~/lib/trpc/client";
+ import { createRouteAction, useRouteData } from "solid-start";
 export default function AddIssue() {
    const [Issue,SetIssue] = createSignal("")
+    const todos =   useRouteData();
    const getissue = async ()  => {
      try {
-       const response = await fetch("http://localhost:5454/api/issue");
-       const data = await response.json();
-       SetIssue(data);
+        const stuff   = await client.getTodos.query();
+        console.log(stuff);
      }
      catch (error) {
        console.log(error);
