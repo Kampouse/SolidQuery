@@ -19,6 +19,7 @@ specifiers:
   solid-js: ^1.6.9
   solid-start: ^0.2.15
   solid-start-node: ^0.2.15
+  solid-trpc: 0.0.11-rc.2
   trpc: ^0.11.3
   typescript: ^4.9.4
   undici: ^5.15.1
@@ -30,6 +31,7 @@ dependencies:
   '@tanstack/solid-query': 4.22.4_solid-js@1.6.9
   '@trpc/client': 10.10.0_@trpc+server@10.10.0
   '@trpc/server': 10.10.0
+  solid-trpc: 0.0.11-rc.2_ivtefgggabzuz5i2tpk7mcmx4m
   trpc: 0.11.3
   zod: 3.20.2
 
@@ -4804,6 +4806,20 @@ packages:
     transitivePeerDependencies:
       - supports-color
     dev: true
+
+  /solid-trpc/0.0.11-rc.2_ivtefgggabzuz5i2tpk7mcmx4m:
+    resolution: {integrity: sha512-hmxf1svB6qf40t81WFMT9329Je7T+hF0/kfLZH/XSkT3jtzjjI8PeZMjc3CRFpMY/BubQQ0gWCFpUhxvlnNl+w==}
+    peerDependencies:
+      '@tanstack/solid-query': ^4.6.1
+      '@trpc/client': ^10.0.0-rc.2
+      '@trpc/server': ^10.0.0-rc.2
+      solid-js: ^1.5.3
+    dependencies:
+      '@tanstack/solid-query': 4.22.4_solid-js@1.6.9
+      '@trpc/client': 10.10.0_@trpc+server@10.10.0
+      '@trpc/server': 10.10.0
+      solid-js: 1.6.9
+    dev: false
 
   /source-map-js/1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}

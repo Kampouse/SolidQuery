@@ -1,14 +1,14 @@
 import { initTRPC } from '@trpc/server';
+import { Issue } from './types';
+import { getIssues } from './queries';
 import { z } from 'zod';
-const t = initTRPC.create();
-const todos = [
-    { id: 1, text: 'Learn about React', completed: true }
-];
+
+export const t = initTRPC.create();
+
 export const appRouter = t.router({
 
-    getTodos: t.procedure.query(() => {
-        return todos;
-    })
+    getIssues: getIssues(),
+
 
 });
 export type AppRouter = typeof appRouter;

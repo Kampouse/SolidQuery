@@ -1,3 +1,4 @@
+import { createTRPCSolid } from 'solid-trpc';
 import {
     createTRPCProxyClient,
     httpBatchLink,
@@ -5,15 +6,14 @@ import {
 } from '@trpc/client';
 import type { AppRouter } from "./router";
 import { APIEvent } from "solid-start/api";
-import { fetchRequestHandler } from '@trpc/server/adapters/fetch';
-import { appRouter } from "~/lib/trpc/router";
+import { QueryClient } from "@tanstack/solid-query";
 
+export const queryClient = new QueryClient();
+export const trpc = createTRPCSolid<AppRouter>({})
 
-
-
-
-// create the client, export it
 export const client = createTRPCProxyClient<AppRouter>({
+
+
     links: [loggerLink(), httpBatchLink({ url: "/api/trpc" })]
 });
 
