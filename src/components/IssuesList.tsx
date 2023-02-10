@@ -1,26 +1,58 @@
 import { A  } from "@solidjs/router";
- 
+import {CounterContext } from "~/components/Providers/Provider"
 import {For,createResource,createSignal } from "solid-js";
  import { client, } from "~/lib/trpc/client";
  import {Issue } from "~/lib/trpc/types";
  import {useRouteData } from "solid-start";
-export default function fetchIssues() {
-  const todos = useRouteData();
-const  [page, setPage] = createSignal(0);
-  const getIssues = async () => {
-       return await client.getIssues.query();
-  };
- const    [Issues] = createResource("page-0" + page(),getIssues );
-  //should a tag should redirector to the issue page with the issue id
+import {useContext } from "solid-js";
+import { QueryClient, QueryClientProvider, createQuery } from '@tanstack/solid-query'
+type IssueType =  "feature" | "rnd" | "bug";
+type IssueProps = {
+  description: string;
+  title: string;
+  type:  IssueType;  
+};
+
+
+function Issues(props: IssueProps){
+  const visualTag = (type: IssueType) => {
+    return (
+    <div class={`tag-element ${type} list` }>  {type} </div>)
+  }
   return (
-   <ul>
-    <For each={Issues()}>{(issue, i) =>
-      <li>
-        <a> {issue.title} </a>
-        <h1>{issue.completed}</h1>
-                  <h1>{issue.id}</h1>
-      </li>
+    <>
+            <li>
+              <div class="issue">
+              <span> {props.title} </span>
+          <small> {props.description}</small>
+          <div class="tagged-list">
+            {visualTag(props.type)}
+              </div>
+              </div>
+          </li>
+    </>
+  );
+}
+
+export default function IssuesList() {
+const queryClient = new QueryClient()
+const [counter ] = useContext(CounterContext);
+const  [page, setPage] = createSignal(0);
+const [list,setList] =  createSignal<Issue[]>([]);
+  const getIssues = async () => {
+  createQuery(() => ["page-0" + page(), counter.count()], async () => {
+ const queryContent =     await client.getIssues.query()
+    setList(queryContent);
+      return queryContent
+    });
+  };
+   getIssues();
+  return (
+   <ul class="issues-list">
+    <For each={list()}>{(issue, i) =>
+        <Issues description={issue.description} title={issue.title}  type={issue.type as IssueType} />
     }</For>
+
     </ul>
   );
 }
