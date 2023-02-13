@@ -1,6 +1,5 @@
-import { useParams } from '@solidjs/router'
+import { useParams } from "@solidjs/router";
 export default function IssueDetails() {
-  const { number } = useParams();
 
-  return <h1>Issue {number}</h1>;
+    return <h1>Issue</h1>;
 }

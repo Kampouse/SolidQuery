@@ -6,7 +6,7 @@
   "extends": [
     "eslint:recommended",
     "plugin:@typescript-eslint/recommended",
-    "plugin:solid/typescript",
+    "plugin:solid/typescript"
   ],
   "overrides": [],
   "parser": "@typescript-eslint/parser",
@@ -16,7 +16,7 @@
   },
   "plugins": ["@typescript-eslint", "solid"],
   "rules": {
-    "indent": ["error", "tab"],
+    "indent": ["error", 4],
     "linebreak-style": ["error", "unix"],
     "quotes": ["error", "double"],
     "semi": ["error", "always"]

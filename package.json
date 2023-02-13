@@ -1,7 +1,7 @@
 {
   "name": "solid-query",
   "scripts": {
-    "dev": "solid-start dev --port 5454",
+    "dev": "solid-start dev --port 5454 & pnpx prisma studio",
     "build": "solid-start build",
     "start": "solid-start start",
     "test": "vitest run",
@@ -23,6 +23,7 @@
     "eslint": "^8.33.0",
     "eslint-plugin-solid": "^0.9.4",
     "jsdom": "^20.0.3",
+    "prisma": "^4.10.1",
     "solid-js": "^1.6.9",
     "solid-start": "^0.2.15",
     "solid-start-node": "^0.2.15",
@@ -32,11 +33,11 @@
     "vitest": "^0.26.3"
   },
   "dependencies": {
+    "@prisma/client": "^4.10.1",
     "@tanstack/solid-query": "^4.22.4",
     "@trpc/client": "^10.10.0",
     "@trpc/server": "^10.10.0",
     "solid-trpc": "0.0.11-rc.2",
-    "trpc": "^0.11.3",
     "zod": "^3.20.2"
   }
 }

@@ -1,8 +1,14 @@
+/// <reference types="vitest" />
+/// <reference types="vite/client" />
 import solid from "solid-start/vite";
 import { defineConfig } from "vitest/config";
 
 export default defineConfig({
-  plugins: [solid()],
+  plugins: [solid(
+    { ssr: true, rootEntry: "src/root.tsx", serverEntry: "src/entry-server.tsx", clientEntry: "src/entry-client.tsx" },
+
+
+  )],
   test: {
     deps: {
       registerNodeLoader: true,
