@@ -7,6 +7,24 @@ import IssuesList from "~/components/IssuesList";
 import {useContext } from "solid-js";
 
 import { client, } from "~/lib/trpc/client";
+ 
+export function  Tags () {
+    return (
+        <div class="tags">
+            <ul class="tags-list">
+                <div class="tag-element feature">
+                    <small> feature </small>
+                </div>
+                <div class="tag-element rnd">
+                    <small> rnd </small>
+                </div>
+                <div class="tag-element bugs">
+                    <small> bug </small>
+                </div>
+            </ul>
+        </div>
+    );
+}
 export default function Home() {
     const [counter ] = useContext(CounterContext);
     const createUser = async () => {
@@ -47,14 +65,9 @@ export default function Home() {
                         <option value="rnd">rnd</option>
                         <option value="bugs">bugs</option>
                     </select>
-
                     <hr/>
-
-                    <button class="issue-button" onClick={createPost}>   add issue </button>
-                    <A  href="/Issues">
-                        <button class="issue-button">   add issue </button> </A>
-
-
+                    <A  href="/AddIssue">
+                        <button  data-testid="goto-AddIssue" class="issue-button">   add issue </button> </A>
                 </div>
             </main>
         </div>

@@ -85,6 +85,7 @@ main {
   background-color: #202c38;
   color : #fdfefe;
   transition: 0.5s ease-in-out;
+
 }
  .tags-list {
   padding: 0;
@@ -176,8 +177,9 @@ main {
   border: 1px solid #ccc;
   background: #9fabba;
   border-radius: 4px;
-  margin-left: 1.9em;
+  margin-left: 1.6em;
   margin-top : 0.5em;
+  margin-bottom : 0.5em;
   color: #2e506f;
 }
 .issues-list {
