@@ -136,12 +136,23 @@ main {
   transform:  scale(1.1);
   transition: all 0.2s ease-in-out;
 }
-
+.tag-element.bugs.selected {
+  background-color: rgba(255, 0, 0,0.8);
+  color : #fdfefe;
+  transform:  scale(1.1);
+  transition: all 0.2s ease-in-out;
+}
 .tag-element.feature {
   background-color: rgba(46, 204, 113, 0.5);
   color : #fdfefe;
 }
  .tag-element.tag-element.feature:hover {
+  background-color: rgba(46, 204, 113, 0.8);
+  color : #fdfefe;
+  transform:  scale(1.1);
+  transition: all 0.2s ease-in-out;
+ }
+.tag-element.tag-element.feature.selected{
   background-color: rgba(46, 204, 113, 0.8);
   color : #fdfefe;
   transform:  scale(1.1);
@@ -157,6 +168,13 @@ main {
   transform:  scale(1.1);
   transition: all 0.2s ease-in-out;
 }
+ .tag-element.rnd.selected {
+  background-color: rgba(241, 196, 15,0.8);
+  color : #fdfefe;
+  transform:  scale(1.1);
+  transition: all 0.2s ease-in-out;
+ }
+
 
  .issue-search {
 

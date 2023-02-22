@@ -27,6 +27,9 @@ text-decoration: underline;
 	color: #2e506f;
 	resize: vertical;
 }
+.issue-input.textarea {
+	height: 9rem;
+}
 .issue-input:focus {
 	outline: none;
 	border: 1px solid #4c91e8;

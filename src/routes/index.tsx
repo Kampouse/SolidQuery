@@ -1,26 +1,63 @@
 import "./index.css";
 import {A } from "@solidjs/router";
 import server$ from "solid-start/server";
-import type { JSX, Component } from "solid-js";
+import { JSX, Component,Accessor, createEffect } from "solid-js";
+import { createSignal,For } from "solid-js";
 import {CounterContext } from "~/components/Providers/Provider";
 import IssuesList from "~/components/IssuesList";
 import {useContext } from "solid-js";
-
 import { client, } from "~/lib/trpc/client";
- 
-export function  Tags () {
+const Tag = (props: { tag: () => {tag:string, selected:string,index:number},selected:Accessor<{tag:string,selected:string,index:number}[]>}) => {
+    const showSelected = () => {
+        return "tag-element " +  props.selected()[props.tag().index].tag + " "  +  props.selected()[props.tag().index].selected;
+    };
+    return (
+        <div class={ showSelected()}>
+            <small> {props.tag().tag} </small>
+        </div>
+    );
+};
+export function  Tags ( ) {
+    const [Selected, setSelected] = createSignal(new Set<string>());
+    const LookUp = ["feature", "rnd", "bugs"].map((tag,index) => {
+        return { tag: tag, selected: "", index: index };
+    });
+    const [Styles, setStyles] = createSignal(LookUp);
+    type selectedType = "feature" | "rnd" | "bugs" ;
+    const selectTag = (tag: selectedType,index:number) => {
+        if (Selected().has(tag)) {
+            Selected().delete(tag);
+            setStyles(Styles().map((style) => {
+                if (style.tag === tag) {
+                      
+                    style.selected = "";
+                }
+                return style;
+            }));
+        }
+        else {
+            setSelected(Selected().add(tag));
+            //add "selected" to the tag
+            setStyles(Styles().map((style) => {
+                if (style.tag === tag) {
+                    style.selected = "selected";
+                }
+                return style;
+            }));
+        }
+    };
+    
     return (
         <div class="tags">
             <ul class="tags-list">
-                <div class="tag-element feature">
-                    <small> feature </small>
-                </div>
-                <div class="tag-element rnd">
-                    <small> rnd </small>
-                </div>
-                <div class="tag-element bugs">
-                    <small> bug </small>
-                </div>
+                <For each={Styles()}>{(tag, i) =>
+                    <div onClick={()=> selectTag(tag.tag as selectedType,i())}>
+                        <Tag tag={()=> tag} selected={Styles }  />
+                    </div>
+                }
+                </For>
+                
+
             </ul>
         </div>
     );

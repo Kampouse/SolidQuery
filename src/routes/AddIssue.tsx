@@ -6,8 +6,9 @@ import { createResource } from "solid-js";
 import { client, } from "~/lib/trpc/client";
 import type { Issue } from "~/lib/trpc/types"; 
 import  "./AddIssue.css";
-import { Tags } from ".";
+import { Tags,getTags } from ".";
 import "./index.css";
+import { createStore } from "solid-js/store";
 const wrapper = async (fn: typeof client.getIssues) => {
     await fn.query();
 };
@@ -19,25 +20,33 @@ const getIssues = async () => {
 };
 // maybe add a search a a top to see if there something already similar to the the curren issue 
 export default function  AddIssue() {
+
+    const  [getTags,setTags] = createStore<getTags>({ 
+        feature: { name:"feature", selected:false}, 
+        rnd:{name: "rnd",selected:false},
+        bugs: {name:"bugs",selected:false} });
     return (
         <> 
             <A href="/">
                 <div class="back-button-issue"  data-testid="goto-Index" > <span>  back to menu </span></div>
             </A>
-            <div class="container"> 
-                <div class="issue-writer">
-                    <h1 class="page-title">  Add issue </h1>
-                    <label class="titles"> Title </label>
-                    <input class="issue-input" type="text" placeholder="Title" data-testid="issue-title-writer" />
-                    <label class="titles"> Description </label>
-                    <textarea class="issue-input" placeholder="Description" data-testid="issue-description-writer" />
-                    <button class="issue-button" type="button" data-testid="submit-button" > Submit </button>
+            <form>
+                <div class="container"> 
+                    <div class="issue-writer">
+                        <h1 class="page-title">  Add issue </h1>
+                        <label class="titles"> Title </label>
+                        <input class="issue-input" type="text" placeholder="Title" data-testid="issue-title-writer" />
+                        <label class="titles"> Description </label>
+                        <textarea class="issue-input textarea" placeholder="Description" data-testid="issue-description-writer" />
+                        <button class="issue-button" type="button" data-testid="submit-button" > Submit </button>
+                    </div>
+                    <div class="tag-container">   
+                        <label> select a tag</label>
+                        <Tags/>
+                    </div>
                 </div>
-                <div class="tag-container">   
-                    <label> select a tag</label>
-                    <Tags />
-                </div>
-            </div>
+
+            </form>
         </>);
 }
 
