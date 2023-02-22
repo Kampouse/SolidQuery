@@ -1,14 +1,18 @@
-import {Signal,Show} from "solid-js";
-
+import {Signal,Show,For, createEffect, createComputed, createSelector} from "solid-js";
 import {A } from "@solidjs/router";
 import { createSignal } from "solid-js";
 import { createResource } from "solid-js";
 import { client, } from "~/lib/trpc/client";
-import type { Issue } from "~/lib/trpc/types"; 
+import type { Issue } from "~/lib/trpc/types";
+import type { Accessor,Setter } from "solid-js";
 import  "./AddIssue.css";
 import { Tags,getTags } from ".";
 import "./index.css";
 import { createStore } from "solid-js/store";
+export type  TagSet = {
+           Selected : Accessor<Set<string>>;
+            setSelected: Setter<Set<string>>;
+    }
 const wrapper = async (fn: typeof client.getIssues) => {
     await fn.query();
 };
@@ -20,11 +24,11 @@ const getIssues = async () => {
 };
 // maybe add a search a a top to see if there something already similar to the the curren issue 
 export default function  AddIssue() {
-
-    const  [getTags,setTags] = createStore<getTags>({ 
-        feature: { name:"feature", selected:false}, 
-        rnd:{name: "rnd",selected:false},
-        bugs: {name:"bugs",selected:false} });
+ 
+    const [Selected, setSelected] = createSignal(new Set<string>());
+    const [selectedTags, setSelectedTags] = createSignal(new Array<string>());
+    const  TagState:TagSet = { Selected: Selected, setSelected: setSelected };
+    const list =  ["feature","rnd","bugs"];
     return (
         <> 
             <A href="/">
@@ -38,11 +42,11 @@ export default function  AddIssue() {
                         <input class="issue-input" type="text" placeholder="Title" data-testid="issue-title-writer" />
                         <label class="titles"> Description </label>
                         <textarea class="issue-input textarea" placeholder="Description" data-testid="issue-description-writer" />
-                        <button class="issue-button" type="button" data-testid="submit-button" > Submit </button>
+                        <button class="issue-button" type="button" onClick={() => console.log(Selected())} data-testid="submit-button" > Submit </button>
                     </div>
-                    <div class="tag-container">   
-                        <label> select a tag</label>
-                        <Tags/>
+                    <div class="tag-container" >   
+                        <label onClick={() => { console.log(Selected()); }}> select a tag</label>
+                        <Tags tags={TagState} tagNames={list}/>
                     </div>
                 </div>
 
