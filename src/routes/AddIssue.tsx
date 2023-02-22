@@ -10,8 +10,8 @@ import { Tags,getTags } from ".";
 import "./index.css";
 import { createStore } from "solid-js/store";
 export type  TagSet = {
-           Selected : Accessor<Set<string>>;
-            setSelected: Setter<Set<string>>;
+           Selected : Accessor<Array<string>>;
+            setSelected: Setter<Array<string>>;
     }
 const wrapper = async (fn: typeof client.getIssues) => {
     await fn.query();
@@ -25,10 +25,14 @@ const getIssues = async () => {
 // maybe add a search a a top to see if there something already similar to the the curren issue 
 export default function  AddIssue() {
  
-    const [Selected, setSelected] = createSignal(new Set<string>());
+    const [Selected, setSelected] = createSignal(new Array<string>());
+    const [selecting, setSelecting] = createSignal(new Array<string>());
     const [selectedTags, setSelectedTags] = createSignal(new Array<string>());
     const  TagState:TagSet = { Selected: Selected, setSelected: setSelected };
     const list =  ["feature","rnd","bugs"];
+    createEffect ((stuff) => {
+        console.log("fire",TagState.Selected());
+    });
     return (
         <> 
             <A href="/">
@@ -47,6 +51,8 @@ export default function  AddIssue() {
                     <div class="tag-container" >   
                         <label onClick={() => { console.log(Selected()); }}> select a tag</label>
                         <Tags tags={TagState} tagNames={list}/>
+                        <h1 class="stuff"> {Selected() }</h1>
+
                     </div>
                 </div>
 

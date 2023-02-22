@@ -10,7 +10,14 @@ import { client, } from "~/lib/trpc/client";
 import { TagSet } from "./AddIssue";
 const Tag = (props: { tag: () => {tag:string, selected:string,index:number},selected:Accessor<{tag:string,selected:string,index:number}[]>}) => {
     const showSelected = () => {
-        return "tag-element " +  props.selected()[props.tag().index].tag + " "  +  props.selected()[props.tag().index].selected;
+           
+        if(props.selected() === undefined)
+        {
+            return "tag-element " +  props.tag().tag + " "  +  props.tag().selected;
+        }
+        else {
+            return "tag-element " +  props.selected()[props.tag().index].tag + " "  +  props.selected()[props.tag().index].selected;
+        }
     };
     return (
         <div class={ showSelected()}>
@@ -19,24 +26,26 @@ const Tag = (props: { tag: () => {tag:string, selected:string,index:number},sele
     );
 };
 export function  Tags (props : {tags:  TagSet,tagNames : string[]}) {
-    let LookUp = [] as {tag:string,selected:string,index:number}[];
-    untrack(() => {
-        LookUp = props.tagNames.map((tag,index) => {
-            return { tag: tag, selected: "", index: index };
-        });
-    });
-    const [Styles, setStyles] = createSignal(LookUp);
+    const converProps = () => {
+        if (Styles().length === 0) {
+            setStyles(props.tagNames.map((tag, index) => {
+                return { tag: tag, selected: "", index: index };
+            }));
+        }
+        return Styles;
+    };
+    const [Styles, setStyles] = createSignal([] as {tag:string,selected:string,index:number}[]);
     const selectTag = (tag: string) => {
-        if (props.tags.Selected().has(tag)) {
-            props.tags.Selected().delete(tag);
+        if (props.tags.Selected().find((t) => t === tag)) {
+            props.tags.setSelected(  props.tags.Selected().filter((t) => t !== tag));
             setStyles(Styles().map((style) => {
+
                 style.tag === tag ? style.selected = "" : style.selected;
                 return style;
             }));
         }
         else {
-            props.tags.setSelected(props.tags.Selected().add(tag));
-            //add "selected" to the tag
+            props.tags.setSelected([...props.tags.Selected(), tag]);
             setStyles(Styles().map((style) => {
                 if (style.tag === tag) {
                     style.selected = "selected";
@@ -49,8 +58,8 @@ export function  Tags (props : {tags:  TagSet,tagNames : string[]}) {
     return (
         <div class="tags">
             <ul class="tags-list">
-                <For each={Styles()}>{(tag, i) =>
-                    <div onClick={()=> selectTag(tag.tag as selectedType,i())}>
+                <For each={ converProps()()}>{(tag) =>
+                    <div onClick={()=> selectTag(tag.tag)}>
                         <Tag tag={()=> tag} selected={Styles }  />
                     </div>
                 }
