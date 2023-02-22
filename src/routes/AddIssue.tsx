@@ -30,9 +30,6 @@ export default function  AddIssue() {
     const [selectedTags, setSelectedTags] = createSignal(new Array<string>());
     const  TagState:TagSet = { Selected: Selected, setSelected: setSelected };
     const list =  ["feature","rnd","bugs"];
-    createEffect ((stuff) => {
-        console.log("fire",TagState.Selected());
-    });
     return (
         <> 
             <A href="/">
@@ -51,8 +48,14 @@ export default function  AddIssue() {
                     <div class="tag-container" >   
                         <label onClick={() => { console.log(Selected()); }}> select a tag</label>
                         <Tags tags={TagState} tagNames={list}/>
-                        <h1 class="stuff"> {Selected() }</h1>
-
+                        <div class="selected-container">
+                            <label> selected tag</label>
+                            <div class="tags-list tags">
+                                <For each={Selected()}>
+                                    {(tag) => <div class={"tag-element " + tag} > {tag} </div>}
+                                </For>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
