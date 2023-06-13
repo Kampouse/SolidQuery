@@ -6,7 +6,7 @@ import { client, } from "~/lib/trpc/client";
 import type { Issue } from "~/lib/trpc/types";
 import type { Accessor,Setter } from "solid-js";
 import  "./AddIssue.css";
-import { Tags,getTags } from ".";
+import { Tags } from ".";
 import "./index.css";
 import { createStore } from "solid-js/store";
 export type  TagSet = {
@@ -17,6 +17,8 @@ const wrapper = async (fn: typeof client.getIssues) => {
     await fn.query();
 };
 const [list , setList] = createSignal<Issue[]> ([]);
+const  [getTitle,setTitle] = createSignal("");
+const [getDescription,setDescription] = createSignal("");
 const getIssues = async () => {
     const  [data] = createResource(async () => {
         setList(await client.getIssues.query());
@@ -26,10 +28,16 @@ const getIssues = async () => {
 export default function  AddIssue() {
  
     const [Selected, setSelected] = createSignal(new Array<string>());
-    const [selecting, setSelecting] = createSignal(new Array<string>());
-    const [selectedTags, setSelectedTags] = createSignal(new Array<string>());
     const  TagState:TagSet = { Selected: Selected, setSelected: setSelected };
     const list =  ["feature","rnd","bugs"];
+    const submitIssue = async (event: Event) => {
+        event.preventDefault();
+        await client.createPost.mutate({title: getTitle(), content: getDescription(), published: true,authorEmail: "defaut@gmail.com"  }).then((res) => { console.log(res); });
+         
+        console.log("submitting issue", getTitle(), getDescription());
+
+         
+    };
     return (
         <> 
             <A href="/">
@@ -40,13 +48,13 @@ export default function  AddIssue() {
                     <div class="issue-writer">
                         <h1 class="page-title">  Add issue </h1>
                         <label class="titles"> Title </label>
-                        <input class="issue-input" type="text" placeholder="Title" data-testid="issue-title-writer" />
+                        <input onInput={(e) =>  setTitle(e.target.value) } class="issue-input" type="text" placeholder="Title" data-testid="issue-title-writer" />
                         <label class="titles"> Description </label>
-                        <textarea class="issue-input textarea" placeholder="Description" data-testid="issue-description-writer" />
-                        <button class="issue-button" type="button" onClick={() => console.log(Selected())} data-testid="submit-button" > Submit </button>
+                        <textarea onInput={(e) => setDescription(e.target.value)} class="issue-input textarea" placeholder="Description" data-testid="issue-description-writer" />
+                        <button class="issue-button" type="button" onClick={(e) => submitIssue(e)} data-testid="submit-button" > Submit </button>
                     </div>
                     <div class="tag-container" >   
-                        <label onClick={() => { console.log(Selected()); }}> select a tag</label>
+                        <label> select a tag</label>
                         <Tags tags={TagState} tagNames={list}/>
                         <div class="selected-container">
                             <label> selected tag</label>

@@ -1,4 +1,7 @@
 @import url("https://ui.dev/font");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 *,
 *:before,

@@ -4,5 +4,5 @@ import { defineConfig } from "vite";
 export default defineConfig({
 
 
-  plugins: [solid({ ssr: false })],
+  plugins: [solid({ ssr: true })],
 });
