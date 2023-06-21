@@ -6,7 +6,6 @@ import { client, } from "~/lib/trpc/client";
 import type { Issue } from "~/lib/trpc/types";
 import type { Accessor,Setter } from "solid-js";
 import  "./AddIssue.css";
-import { Tags } from ".";
 import "./index.css";
 import { createStore } from "solid-js/store";
 export type  TagSet = {
