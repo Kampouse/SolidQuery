@@ -15,7 +15,7 @@ export default function Home() {
             <div class="header col-span-12 rounded-lg   bg-inner-blue   flex flex-row">
                 <button class="bg-white text-black rounded-lg   border border-inner-blue  p-4 px-8"> <A href="/DarkMode"> DarkMode </A> </button>
                 <button class="bg-white text-black   border border-inner-blue p-4 px-8"> <A href="/ColorsPalette"> ColorPalettes </A> </button>
-                <button class="bg-white text-black border border-inner-blue   p-4 px-8"> <A href="/issues"> Issues </A> </button>
+                <button class="bg-white text-black border border-inner-blue   p-4 px-8"> <A href="/Modal"> Modal </A> </button>
             </div>
             <div class="col-span-12  rounded-lg border border-gray-500  bg-inner-blue bg-p-32   sm:col-span-8">
             </div>
