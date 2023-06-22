@@ -4,7 +4,6 @@ export const Navbar = () => {
     return (
 
         <div class="header col-span-12 rounded-lg   bg-inner-blue   flex flex-row mb-4">
-
             <button class="bg-white text-black rounded-lg   border border-inner-blue  p-4 px-8"> <A href="/"> Home </A> </button>
             <button class="bg-white text-black rounded-lg   border border-inner-blue  p-4 px-8"> <A href="/DarkMode"> Dark Mode </A> </button>
             <button class="bg-white text-black   border border-inner-blue p-4 px-8"> <A href="/ColorsPalette"> Color Palettes </A> </button>
