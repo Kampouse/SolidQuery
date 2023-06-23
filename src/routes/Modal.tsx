@@ -1,6 +1,6 @@
 import { createSignal } from "solid-js"
 
-import {  Navbar } from "./index"
+import  { BaseLayout } from "./index"
 type ButtonModalProps = {
     toggleButton: () => void
 }
@@ -11,16 +11,10 @@ const ButtonModal = (param: ButtonModalProps) => {
     )
 }
 
-
-
 export default function Modal() {
     const [isOpen, setIsOpen] = createSignal(false)
-
-
-
     return (
-        <>
-             <Navbar />
+        <BaseLayout>
             <dialog class="w-96 h-96 mt-10 bg-[#359fad] border-2 rounded-lg border-gray-900  transition duration-500  " open={isOpen()}>
                 <div class="flex flex-col items-center justify-center h-full" >
 
@@ -29,7 +23,7 @@ export default function Modal() {
                 </div>
             </dialog>
             <ButtonModal toggleButton={() => setIsOpen(!isOpen())} />
-        </>
+        </BaseLayout>
     )
 
 
