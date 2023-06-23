@@ -74,15 +74,9 @@ export default function Form() {
         const formData = new FormData(e.target as HTMLFormElement);
         const data = Object.fromEntries(formData.entries()) as formy
         setError([])
-        console.log(data)
         setFormState(data);
-        if (verifForm()) {
-            console.log(" Form  submitted")
-        }
-        else {
-            console.log("error in field")
+        verifForm();
 
-        }
     }
 
     const validity = (field: Fields) => errorField(field).length === 0 ? true : false
@@ -99,7 +93,7 @@ export default function Form() {
                         <InputField field="password" field_arias="password" type="password" validity={validity("password")} />
                         <InputField field="password-second" field_arias="password_second" type="password" validity={validity("password-second")} />
                         <input type="submit" autofocus={true} class="p-2 rounded bg-gray-900 text-white cursor-pointer" />
-                   </form>
+                    </form>
 
                     <Show when={error().length > 0}>
                         <For each={fields}>
