@@ -1,5 +1,5 @@
-import { createSignal, createComputed, createRenderEffect } from "solid-js";
-import {  Navbar,Fields } from "./index"
+import { createSignal, createRenderEffect } from "solid-js";
+import {  BaseLayout } from "./index"
 
 
 export default function DarkMode() {
@@ -18,8 +18,7 @@ export default function DarkMode() {
 
 
     return (
-        <>
-                <Navbar fields={Fields} />
+             <BaseLayout> 
         <div class={color() + " transition duration-500  rounded-xl "}>
             <div class={"  flex flex-col items-center justify-center w-full h-[38rem] border-2 rounded-lg " + borderColor()}>
 
@@ -27,6 +26,6 @@ export default function DarkMode() {
                 <button class={"px-4 py-2 mt-4 text-white rounded " + buttonColor() + " hover:scale-110 transition duration-200"} onClick={toggleTheme}>Toggle Theme</button>
             </div>
         </div>
-        </>
+            </BaseLayout> 
     );
 }
