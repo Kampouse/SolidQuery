@@ -15,24 +15,15 @@ const Fetcher = async (url: string) => {
     return await fetch(url).then((res) => res.json());
 }
 
-
+ 
 const [data, {refetch }] = createResource("https://dog.ceo/api/breeds/image/random", Fetcher);
-const  [state,setState] = createSignal({message: "", status:"ready" } )
-     
-setState(data); 
-    const onRefresh =  () => {
-        if (data.state === "ready"){
-        refetch();
-        setState (data);
-        }
-    }
     return (
         <BaseLayout>
             <div class="flex flex-col items-center justify-center h-full" >
                 <Suspense fallback={<div class="w-96 h-96 mt-10 rounded-lg"> waiting... </div>}>
-                    <ImageFrame content={state()} />
+                    <ImageFrame content={data()} />
             <button class="px-4 py-2 mt-4 text-white rounded  bg-gray-900 text-black hover:scale-110 transition duration-200 " 
-              onClick={onRefresh}
+              onClick={refetch}
             disabled={data.state !== "ready"}
             >Refetch</button>
                 </Suspense>
