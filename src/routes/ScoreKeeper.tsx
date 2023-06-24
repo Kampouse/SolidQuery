@@ -1,4 +1,4 @@
-import { createSignal } from "solid-js"
+import { createSignal, createEffect, onMount, createComputed } from "solid-js"
 import { BaseLayout } from "./index"
 type ButtonProps = {
     toggleButton: () => void
@@ -12,15 +12,27 @@ const Button = (props: ButtonProps) => {
 }
 
 export default function ScoreKeeper() {
-    const [isOpen, setIsOpen] = createSignal(false)
+
+
+    const Isserver = () => typeof window === "undefined"
+    const [score, setScore] = createSignal(parseInt(Isserver() ? "" : localStorage.getItem("score") || ""))
+    const [score2, setScore2] = createSignal<number | undefined>(undefined)
+    const Decrease = () => setScore(score() - 1)
+    const Increase = () => setScore(score() + 1)
+    const Reset = () => setScore(0)
+    const SetInStorage = () => localStorage.setItem("score", score().toString())
+    createEffect(() => {
+        SetInStorage();
+        setScore2(score())
+    })
     return (
         <BaseLayout>
             <div class=" flex flex-col items-center justify-center h-full">
-                <h1 class="text-4xl font-bold   transition duration-500"> Score Keeper </h1>
+                <h1 class="text-4xl font-bold   transition duration-900"> Score Keeper {score2()}  </h1>
                 <div class="flex gap-4 flex-row items-center justify-center w-full h-[38rem] border-2 rounded-lg border-gray-900">
-                    <Button toggleButton={() => setIsOpen(!isOpen())} title="Increase score" />
-                    <Button toggleButton={() => setIsOpen(!isOpen())} title="Decrease score" />
-                    <Button toggleButton={() => setIsOpen(!isOpen())} title="Reset score" />
+                    <Button toggleButton={() => Increase()} title="Increase score" />
+                    <Button toggleButton={() => Decrease()} title="Decrease score" />
+                    <Button toggleButton={() => Reset()} title="Reset score" />
                 </div>
             </div>
         </BaseLayout>
