@@ -44,17 +44,8 @@ export default function  AddIssue() {
             </A>
             <form>
                 <div class="container"> 
-                    <div class="issue-writer">
-                        <h1 class="page-title">  Add issue </h1>
-                        <label class="titles"> Title </label>
-                        <input onInput={(e) =>  setTitle(e.target.value) } class="issue-input" type="text" placeholder="Title" data-testid="issue-title-writer" />
-                        <label class="titles"> Description </label>
-                        <textarea onInput={(e) => setDescription(e.target.value)} class="issue-input textarea" placeholder="Description" data-testid="issue-description-writer" />
-                        <button class="issue-button" type="button" onClick={(e) => submitIssue(e)} data-testid="submit-button" > Submit </button>
-                    </div>
                     <div class="tag-container" >   
                         <label> select a tag</label>
-                        <Tags tags={TagState} tagNames={list}/>
                         <div class="selected-container">
                             <label> selected tag</label>
                             <div class="tags-list tags">

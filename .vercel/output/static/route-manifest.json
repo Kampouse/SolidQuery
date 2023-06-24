@@ -1,0 +1,207 @@
+{
+  "/AddIssue": [
+    {
+      "type": "script",
+      "href": "/assets/AddIssue.769f3f36.js"
+    },
+    {
+      "type": "script",
+      "href": "/assets/entry-client.f31ed8db.js"
+    },
+    {
+      "type": "style",
+      "href": "/assets/entry-client.e0c1990d.css"
+    },
+    {
+      "type": "style",
+      "href": "/assets/AddIssue.ab81116d.css"
+    }
+  ],
+  "/ColorsPalette": [
+    {
+      "type": "script",
+      "href": "/assets/ColorPicker.02941e69.js"
+    },
+    {
+      "type": "script",
+      "href": "/assets/entry-client.f31ed8db.js"
+    },
+    {
+      "type": "style",
+      "href": "/assets/entry-client.e0c1990d.css"
+    },
+    {
+      "type": "script",
+      "href": "/assets/AddIssue.769f3f36.js"
+    },
+    {
+      "type": "style",
+      "href": "/assets/AddIssue.ab81116d.css"
+    }
+  ],
+  "/DarkMode": [
+    {
+      "type": "script",
+      "href": "/assets/ColorPicker.02941e69.js"
+    },
+    {
+      "type": "script",
+      "href": "/assets/entry-client.f31ed8db.js"
+    },
+    {
+      "type": "style",
+      "href": "/assets/entry-client.e0c1990d.css"
+    },
+    {
+      "type": "script",
+      "href": "/assets/AddIssue.769f3f36.js"
+    },
+    {
+      "type": "style",
+      "href": "/assets/AddIssue.ab81116d.css"
+    }
+  ],
+  "/DogFrame": [
+    {
+      "type": "script",
+      "href": "/assets/ColorPicker.02941e69.js"
+    },
+    {
+      "type": "script",
+      "href": "/assets/entry-client.f31ed8db.js"
+    },
+    {
+      "type": "style",
+      "href": "/assets/entry-client.e0c1990d.css"
+    },
+    {
+      "type": "script",
+      "href": "/assets/AddIssue.769f3f36.js"
+    },
+    {
+      "type": "style",
+      "href": "/assets/AddIssue.ab81116d.css"
+    }
+  ],
+  "/Form": [
+    {
+      "type": "script",
+      "href": "/assets/ColorPicker.02941e69.js"
+    },
+    {
+      "type": "script",
+      "href": "/assets/entry-client.f31ed8db.js"
+    },
+    {
+      "type": "style",
+      "href": "/assets/entry-client.e0c1990d.css"
+    },
+    {
+      "type": "script",
+      "href": "/assets/AddIssue.769f3f36.js"
+    },
+    {
+      "type": "style",
+      "href": "/assets/AddIssue.ab81116d.css"
+    }
+  ],
+  "/Modal": [
+    {
+      "type": "script",
+      "href": "/assets/ColorPicker.02941e69.js"
+    },
+    {
+      "type": "script",
+      "href": "/assets/entry-client.f31ed8db.js"
+    },
+    {
+      "type": "style",
+      "href": "/assets/entry-client.e0c1990d.css"
+    },
+    {
+      "type": "script",
+      "href": "/assets/AddIssue.769f3f36.js"
+    },
+    {
+      "type": "style",
+      "href": "/assets/AddIssue.ab81116d.css"
+    }
+  ],
+  "/ScoreKeeper": [
+    {
+      "type": "script",
+      "href": "/assets/ColorPicker.02941e69.js"
+    },
+    {
+      "type": "script",
+      "href": "/assets/entry-client.f31ed8db.js"
+    },
+    {
+      "type": "style",
+      "href": "/assets/entry-client.e0c1990d.css"
+    },
+    {
+      "type": "script",
+      "href": "/assets/AddIssue.769f3f36.js"
+    },
+    {
+      "type": "style",
+      "href": "/assets/AddIssue.ab81116d.css"
+    }
+  ],
+  "/": [
+    {
+      "type": "script",
+      "href": "/assets/ColorPicker.02941e69.js"
+    },
+    {
+      "type": "script",
+      "href": "/assets/entry-client.f31ed8db.js"
+    },
+    {
+      "type": "style",
+      "href": "/assets/entry-client.e0c1990d.css"
+    },
+    {
+      "type": "script",
+      "href": "/assets/AddIssue.769f3f36.js"
+    },
+    {
+      "type": "style",
+      "href": "/assets/AddIssue.ab81116d.css"
+    }
+  ],
+  "/ColorPicker": [
+    {
+      "type": "script",
+      "href": "/assets/ColorPicker.02941e69.js"
+    },
+    {
+      "type": "script",
+      "href": "/assets/entry-client.f31ed8db.js"
+    },
+    {
+      "type": "style",
+      "href": "/assets/entry-client.e0c1990d.css"
+    },
+    {
+      "type": "script",
+      "href": "/assets/AddIssue.769f3f36.js"
+    },
+    {
+      "type": "style",
+      "href": "/assets/AddIssue.ab81116d.css"
+    }
+  ],
+  "entry-client": [
+    {
+      "type": "script",
+      "href": "/assets/entry-client.f31ed8db.js"
+    },
+    {
+      "type": "style",
+      "href": "/assets/entry-client.e0c1990d.css"
+    }
+  ],
+  "index.html": []
+}

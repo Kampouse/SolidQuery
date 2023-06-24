@@ -1,0 +1,40 @@
+{
+  "src/entry-client.tsx": {
+    "file": "assets/entry-client.f31ed8db.js",
+    "src": "src/entry-client.tsx",
+    "isEntry": true,
+    "dynamicImports": [
+      "_AddIssue.769f3f36.js",
+      "_ColorPicker.02941e69.js"
+    ],
+    "css": [
+      "assets/entry-client.e0c1990d.css"
+    ]
+  },
+  "_AddIssue.769f3f36.js": {
+    "file": "assets/AddIssue.769f3f36.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "src/entry-client.tsx"
+    ],
+    "css": [
+      "assets/AddIssue.ab81116d.css"
+    ]
+  },
+  "_ColorPicker.02941e69.js": {
+    "file": "assets/ColorPicker.02941e69.js",
+    "isDynamicEntry": true,
+    "imports": [
+      "src/entry-client.tsx",
+      "_AddIssue.769f3f36.js"
+    ]
+  },
+  "AddIssue.css": {
+    "file": "assets/AddIssue.ab81116d.css",
+    "src": "AddIssue.css"
+  },
+  "src/entry-client.css": {
+    "file": "assets/entry-client.e0c1990d.css",
+    "src": "src/entry-client.css"
+  }
+}

@@ -1,0 +1,5 @@
+{
+  "runtime": "nodejs16.x",
+  "handler": "Users/j-p/dev/solid-query/dist/index.cjs",
+  "launcherType": "Nodejs"
+}
