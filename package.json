@@ -25,7 +25,6 @@
     "eslint-plugin-solid": "^0.9.4",
     "jsdom": "^20.0.3",
     "postcss": "^8.4.24",
-    "prisma": "^4.10.1",
     "solid-js": "^1.6.9",
     "solid-start": "^0.2.15",
     "solid-start-node": "^0.2.15",
@@ -36,7 +35,6 @@
     "vitest": "^0.26.3"
   },
   "dependencies": {
-    "@prisma/client": "^4.10.1",
     "@tanstack/solid-query": "^4.22.4",
     "@trpc/client": "^10.10.0",
     "@trpc/server": "^10.10.0",

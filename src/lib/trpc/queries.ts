@@ -1,7 +1,7 @@
 import { Issue, Post } from "./types";
 import { z } from "zod";
 import { t } from "./router";
-import { prisma } from "~/entry-server";
+//import { prisma } from "~/entry-server";
 const todos = [
     { id: 1, title: "Learn about React", description: "react is framework...", type: "feature", completed: false },
     { id: 2, title: "Learn about SolidJs", description: "react is framework...", type: "bugs", completed: false },
@@ -12,7 +12,7 @@ export const getIssues = () => {
         return todos;
     });
 };
-
+/*
 export const createUser = () => {
     return t.procedure.input(
         z.object({
@@ -30,6 +30,8 @@ export const createUser = () => {
         return newUser;
     });
 };
+*/
+/*
 export const createPost = () => {
     return t.procedure.input(
         z.object({
@@ -48,4 +50,7 @@ export const createPost = () => {
     });
 
 
+
 };
+
+*/
