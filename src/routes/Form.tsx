@@ -1,5 +1,6 @@
-import {BaseLayout } from "./index"
+import { BaseLayout } from "./index"
 import { createStore } from "solid-js/store"
+import {GET  } from "./api/Form"
 import { createSignal, Show, createRenderEffect, For } from "solid-js"
 type formy = {
     name: string,
@@ -69,7 +70,10 @@ export default function Form() {
         return []
     }
     const submit = (e: Event) => {
+
         e.preventDefault()
+        const  output = GET()
+        console.log(output.json().then((e) => console.log(e)))
         const formData = new FormData(e.target as HTMLFormElement);
         const data = Object.fromEntries(formData.entries()) as formy
         setError([])
@@ -82,30 +86,30 @@ export default function Form() {
     const fields = ["name", "email", "password", "password-second"] as const
     return (
         <BaseLayout>
-                <div class="flex flex flex-col items-center justify-center">
-                    <div class={"flex flex-col items-center justify-center w-3/5 h-[38rem] border-1 rounded-lg bg-[#396789] border border-gray-900 "}>
-                        <form aria-label="register form"
-                            onSubmit={(e) => submit(e)} name="form register" class="flex flex-col items-center gap-4 justify-center w-full h-full text-center">
-                            <InputField field="name" field_arias="name" validity={validity("name")} />
-                            <InputField field="email" field_arias="email" validity={validity("email")} />
-                            <InputField field="password" field_arias="password" type="password" validity={validity("password")} />
-                            <InputField field="password-second" field_arias="password_second" type="password" validity={validity("password-second")} />
-                            <input type="submit" autofocus={true} class="p-2 rounded bg-gray-900 text-white cursor-pointer" />
-                        </form>
+            <div class="flex flex flex-col items-center justify-center">
+                <div class={"flex flex-col items-center justify-center w-3/5 h-[38rem] border-1 rounded-lg bg-[#396789] border border-gray-900 "}>
+                    <form aria-label="register form"
+                        onSubmit={(e) => submit(e)} name="form register" class="flex flex-col items-center gap-4 justify-center w-full h-full text-center">
+                        <InputField field="name" field_arias="name" validity={validity("name")} />
+                        <InputField field="email" field_arias="email" validity={validity("email")} />
+                        <InputField field="password" field_arias="password" type="password" validity={validity("password")} />
+                        <InputField field="password-second" field_arias="password_second" type="password" validity={validity("password-second")} />
+                        <input type="submit" autofocus={true} class="p-2 rounded bg-gray-900 text-white cursor-pointer" />
+                    </form>
 
-                        <Show when={error().length > 0}>
-                            <For each={fields}>
-                                {(field) => (
-                                    <h1> {errorField(field)?.map((e) => e.message)}</h1>)
-                                }
-                            </For>
-                        </Show>
-                        <Show when={error().length === 0}>
-                            <h1> success </h1>
-                        </Show>
-                    </div>
-
+                    <Show when={error().length > 0}>
+                        <For each={fields}>
+                            {(field) => (
+                                <h1> {errorField(field)?.map((e) => e.message)}</h1>)
+                            }
+                        </For>
+                    </Show>
+                    <Show when={error().length === 0}>
+                        <h1> success </h1>
+                    </Show>
                 </div>
+
+            </div>
         </BaseLayout>
 
     )
