@@ -38,6 +38,7 @@
     "@tanstack/solid-query": "^4.22.4",
     "@trpc/client": "^10.10.0",
     "@trpc/server": "^10.10.0",
+    "solid-start-vercel": "^0.2.26",
     "solid-trpc": "0.0.11-rc.2",
     "zod": "^3.20.2"
   }
