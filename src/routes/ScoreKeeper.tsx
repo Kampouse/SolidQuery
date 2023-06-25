@@ -1,4 +1,5 @@
-import { createSignal, createEffect, onMount, createComputed } from "solid-js"
+import { createSignal, createEffect } from "solid-js"
+import { Title } from "solid-start";
 import { BaseLayout } from "./index"
 type ButtonProps = {
     toggleButton: () => void
@@ -27,6 +28,7 @@ export default function ScoreKeeper() {
     })
     return (
         <BaseLayout>
+            <Title> Score Keeper </Title>
             <div class=" flex flex-col items-center justify-center h-full">
                 <h1 class="text-4xl font-bold   transition duration-900"> Score Keeper {score2()}  </h1>
                 <div class="flex gap-4 flex-row items-center justify-center w-full h-[38rem] border-2 rounded-lg border-gray-900">

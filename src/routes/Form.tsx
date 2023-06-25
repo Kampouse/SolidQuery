@@ -2,6 +2,7 @@ import { BaseLayout } from "./index"
 import { createStore } from "solid-js/store"
 import {GET  } from "./api/Form"
 import { createSignal, Show, createRenderEffect, For } from "solid-js"
+import {Title  } from 'solid-start'
 type formy = {
     name: string,
     email: string,
@@ -13,10 +14,11 @@ type Error = { field: string, message: string }
 const InputField = (props: { field: Fields, field_arias: string, validity: boolean, type?: string }) => {
     const [valid, setValid] = createSignal<string>("")
     createRenderEffect(() => {
-        console.log(props.validity)
         setValid(props.validity ? "" : "border border-red-500")
     })
     return (
+        <>
+          <Title> Form </Title>
         <label class=" flex flex-col  text-white" for={props.field_arias}>{props.field}
             <input type={props.type ||= "text"} name={props.field_arias}
                 aria-details={props.field_arias}
@@ -24,6 +26,7 @@ const InputField = (props: { field: Fields, field_arias: string, validity: boole
                 class={"p-2 rounded bg-gray-900 text-white" + " " + valid()}
                 placeholder={props.field} />
         </label>
+         </>
     )
 }
 
@@ -73,7 +76,6 @@ export default function Form() {
 
         e.preventDefault()
         const  output = GET()
-        console.log(output.json().then((e) => console.log(e)))
         const formData = new FormData(e.target as HTMLFormElement);
         const data = Object.fromEntries(formData.entries()) as formy
         setError([])

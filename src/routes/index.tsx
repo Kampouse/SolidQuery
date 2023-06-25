@@ -1,6 +1,7 @@
 import "./index.css";
 import { A } from "@solidjs/router";
 import { For, JSX } from "solid-js";
+import { Title } from "solid-start";
  
 //get routes from the routes folder probaly should not to this but ... lazy af
 const routes = import.meta.globEager("../routes/*.tsx")
@@ -32,6 +33,7 @@ export const BaseLayout = (props: { children: JSX.Element }) => {
 export default function Home() {
     return (
         <BaseLayout>
+          <Title> Home </Title>
             <div class=" grid  grid-cols-12  h-full gap-4  rounded-lg   ml-2">
                 <div class="col-span-12  rounded-lg border border-gray-500  bg-inner-blue bg-p-32   sm:col-span-8">
                 </div>

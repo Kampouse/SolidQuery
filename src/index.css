@@ -10,8 +10,13 @@
 }
 
 Body {
-  background-color: #2c4f7c;
   color: black;
   border-color: black;
   font-family: "Roboto", sans-serif; 
+  background: radial-gradient(ellipse at top, #0247af, #050000),
+  radial-gradient(ellipse at 100%,  #050000, transparent);
+  height: 110vh;
 }
+
+
+

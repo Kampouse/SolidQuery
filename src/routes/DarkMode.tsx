@@ -1,4 +1,5 @@
 import { createSignal, createRenderEffect } from "solid-js";
+import { Title  } from "solid-start";
 import {  BaseLayout } from "./index"
 
 
@@ -19,6 +20,7 @@ export default function DarkMode() {
 
     return (
              <BaseLayout> 
+    <Title> Dark Mode </Title>
         <div class={color() + " transition duration-500  rounded-xl "}>
             <div class={"  flex flex-col items-center justify-center w-full h-[38rem] border-2 rounded-lg " + borderColor()}>
 

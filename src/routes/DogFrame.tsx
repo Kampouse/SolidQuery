@@ -1,4 +1,5 @@
 import { createSignal, createResource, Suspense, Show } from "solid-js"
+import { Title } from "solid-start"
 import { BaseLayout } from "./index"
 const ImageFrame = (props: { content: { message: string, status: string } }) => {
     return (
@@ -23,6 +24,7 @@ export default function DogFrame() {
     }
     return (
         <BaseLayout>
+            <Title> Dog Frame </Title>
             <div class="flex flex-col items-center justify-center h-full" >
                 <Suspense fallback={<ImageFrame content={old()} />}>
                     <ImageFrame content={data()} />
