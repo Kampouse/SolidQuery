@@ -121,7 +121,7 @@ const Table_v2 = () => {
       <table class="w-full">
         <thead>
           <tr class="text-md font-semibold tracking-wide text-center text-gray-900 bg-gray-100 uppercase border-b border-gray-600 text-center">
-            <th class="px-[3.5rem] py-3 text-left">Name</th>
+            <th class="px-[1rem] py-3 text-left">Name</th>
             <th class="px-4 py-3">Age</th>
             <th class="px-4 py-3">Status</th>
             <th class="px-4 py-3">Date</th>
