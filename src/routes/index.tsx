@@ -128,7 +128,7 @@ export default function Home() {
     <div class="w-full overflow-x-scroll md:overflow-x-hidden lg:overflow-x-hidden">
       <table class="w-full">
         <thead>
-          <tr class="text-md font-semibold tracking-wide text-center text-gray-900 bg-gray-100 uppercase border-b border-gray-600">
+          <tr class="text-md font-semibold tracking-wide text-center text-gray-900 bg-gray-100 uppercase border-b border-gray-600 text-center">
             <th class="px-4 py-3">Name</th>
             <th class="px-4 py-3">Age</th>
             <th class="px-4 py-3">Status</th>
@@ -136,9 +136,9 @@ export default function Home() {
           </tr>
         </thead>
         <tbody class="bg-white">
-          <tr class="text-gray-700">
-            <td class="px-4 py-3 border">
-              <div class="flex items-center text-sm">
+          <tr class="text-gray-700 text-center">
+            <td class="px-4 py-3 text-center border">
+              <div class="flex flex-row items-center text-sm">
                 <div class="relative w-8 h-8 mr-3 rounded-full md:block">
                   <img class="object-cover w-full h-full rounded-full" src="https://images.pexels.com/photos/5212324/pexels-photo-5212324.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt="" loading="lazy" />
                   <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
@@ -155,9 +155,9 @@ export default function Home() {
             </td>
             <td class="px-4 py-3 text-sm border">6/4/2000</td>
           </tr>
-          <tr class="text-gray-700">
-            <td class="px-4 py-3 border">
-              <div class="flex items-center text-sm">
+          <tr class="text-gray-700 text-center">
+            <td class="px-4 py-3 border ">
+              <div class="flex items-center text-sm ">
                 <div class="relative w-8 h-8 mr-3 rounded-full">
                   <img class="object-cover w-full h-full rounded-full" src="https://images.pexels.com/photos/5212324/pexels-photo-5212324.jpeg?auto=compress&cs=tinysrgb&dpr=3&h=750&w=1260" alt="" loading="lazy" />
                   <div class="absolute inset-0 rounded-full shadow-inner" aria-hidden="true"></div>
