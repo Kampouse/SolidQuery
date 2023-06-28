@@ -23,7 +23,7 @@ export default function Root() {
                 <Meta name="viewport" content="width=device-width, initial-scale=1" />
             </Head>
             <Body>
-                <div class=" m-3 max-w-screen-2xl">
+                <div class=" m-3 ">
                     <Suspense>
                         <ErrorBoundary>
                             <QueryClientProvider client={queryClient}>

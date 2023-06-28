@@ -9,10 +9,17 @@ const updater = (state: any, fn: fn) => {
 };
 
 type  Blocks  = {
+    current_color :string;
     blocks: string[] 
 }
 
-const [Block, SetBlock] = createSignal<Blocks>({ blocks: [] })
+
+const fill = () => {
+     return new Array(100).fill("bg-red-500");
+}
+const [Block, SetBlock] = createSignal<Blocks> 
+({blocks : fill(),current_color:"bg-gray-900"  } )
+
 export const BlockContext = createContext([Block,SetBlock]);
 export function BlockProvider(props: { children: JSX.Element}) {
     const [state, setState] = createStore(Block);
