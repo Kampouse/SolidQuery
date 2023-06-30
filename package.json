@@ -35,6 +35,8 @@
     "vitest": "^0.26.3"
   },
   "dependencies": {
+    "@auth/core": "^0.9.0",
+    "@auth/solid-start": "^0.1.1",
     "@tanstack/solid-query": "^4.22.4",
     "@trpc/client": "^10.10.0",
     "@trpc/server": "^10.10.0",

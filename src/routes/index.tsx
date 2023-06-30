@@ -1,4 +1,5 @@
 import "./index.css";
+import { signIn, signOut } from "@auth/solid-start/client"
 import { A } from "@solidjs/router";
 import { createSignal, For, JSX } from "solid-js";
 import { Title } from "solid-start";
