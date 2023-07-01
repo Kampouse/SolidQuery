@@ -42,9 +42,10 @@
     "@planetscale/database": "^1.8.0",
     "@prisma/client": "4.16.2",
     "@tanstack/solid-query": "^4.22.4",
-    "@trpc/client": "^10.10.0",
-    "@trpc/server": "^10.10.0",
+    "@trpc/client": "^ 10.33.0",
+    "@trpc/server": "^10.33.0",
     "mysql2": "^3.4.3",
+    "solid-start-trpc": "^0.0.16",
     "solid-start-vercel": "^0.2.26",
     "solid-trpc": "0.0.11-rc.2",
     "zod": "^3.20.2"

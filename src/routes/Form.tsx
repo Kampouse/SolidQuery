@@ -1,8 +1,9 @@
 import { BaseLayout } from "./index"
 import { createStore } from "solid-js/store"
-import {GET  } from "./api/Form"
 import { createSignal, Show, createRenderEffect, For } from "solid-js"
 import {Title  } from 'solid-start'
+import { trpc}  from "../server/trpc_client"
+
 type formy = {
     name: string,
     email: string,
@@ -12,6 +13,8 @@ type formy = {
 type Fields = "email" | "name" | "password" | "password-lenght" | "password-second" | string
 type Error = { field: string, message: string }
 const InputField = (props: { field: Fields, field_arias: string, validity: boolean, type?: string }) => {
+     
+
     const [valid, setValid] = createSignal<string>("")
     createRenderEffect(() => {
         setValid(props.validity ? "" : "border border-red-500")
@@ -31,6 +34,8 @@ const InputField = (props: { field: Fields, field_arias: string, validity: boole
 }
 
 export default function Form() {
+     trpc.hello.query({ name : "world" })
+    
     const [formState, setFormState] = createStore<formy>({
         "name": "",
         "email": "",

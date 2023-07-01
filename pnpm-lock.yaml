@@ -21,20 +21,23 @@ dependencies:
     specifier: ^4.22.4
     version: 4.24.4(solid-js@1.7.6)
   '@trpc/client':
-    specifier: ^10.10.0
-    version: 10.11.0(@trpc/server@10.11.0)
+    specifier: ^ 10.33.0
+    version: 10.33.0(@trpc/server@10.33.0)
   '@trpc/server':
-    specifier: ^10.10.0
-    version: 10.11.0
+    specifier: ^10.33.0
+    version: 10.33.0
   mysql2:
     specifier: ^3.4.3
     version: 3.4.3
+  solid-start-trpc:
+    specifier: ^0.0.16
+    version: 0.0.16(@trpc/client@10.33.0)(@trpc/server@10.33.0)(solid-js@1.7.6)(solid-start@0.2.26)
   solid-start-vercel:
     specifier: ^0.2.26
     version: 0.2.26(solid-start@0.2.26)(vite@4.3.9)
   solid-trpc:
     specifier: 0.0.11-rc.2
-    version: 0.0.11-rc.2(@tanstack/solid-query@4.24.4)(@trpc/client@10.11.0)(@trpc/server@10.11.0)(solid-js@1.7.6)
+    version: 0.0.11-rc.2(@tanstack/solid-query@4.24.4)(@trpc/client@10.33.0)(@trpc/server@10.33.0)(solid-js@1.7.6)
   zod:
     specifier: ^3.20.2
     version: 3.20.6
@@ -3422,16 +3425,16 @@ packages:
     engines: {node: '>= 10'}
     dev: true
 
-  /@trpc/client@10.11.0(@trpc/server@10.11.0):
-    resolution: {integrity: sha512-GdSfyJxYI3Z9zyz2fEdJBGWLzqrpaonRtG1BtYLR5/63/eaW3/weA3JcEl2H3/CvqSNZfptNMZqLmaZyChTxdg==}
+  /@trpc/client@10.33.0(@trpc/server@10.33.0):
+    resolution: {integrity: sha512-gHKe/5MEdoi1HEF7gsviFdHC7IyVRYjS39C0uXYHlM9rJ9It+KQpz8+wu9XkORte/lbBCScOGOPLNqb5IvSF/g==}
     peerDependencies:
-      '@trpc/server': 10.11.0
+      '@trpc/server': 10.33.0
     dependencies:
-      '@trpc/server': 10.11.0
+      '@trpc/server': 10.33.0
     dev: false
 
-  /@trpc/server@10.11.0:
-    resolution: {integrity: sha512-alV96Bjpa3bPgF+LZkJeQtrUJP/BM5EVpsB8S755RA3xtbudMw/lvLJFep8L/xTRw1HFZ7r4uRD31dKLOrMpaA==}
+  /@trpc/server@10.33.0:
+    resolution: {integrity: sha512-3EN7hiYFy1FsMqGIHEkRqtjxLhTRc/E73mdE+F/vqJWNwigM8UmAvZgFC0YTw87PYpztYzA1vxxK7LQfhXHeog==}
     dev: false
 
   /@ts-morph/common@0.11.1:
@@ -9217,6 +9220,20 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
+  /solid-start-trpc@0.0.16(@trpc/client@10.33.0)(@trpc/server@10.33.0)(solid-js@1.7.6)(solid-start@0.2.26):
+    resolution: {integrity: sha512-99/EGIE0SObmCVhZR00bYpkEQpCDP22YgjalQpVgm0BKy2+tJzEC6vdvOII2Ppa0Fm7iPwc4LDZoFX2E3KYmsg==}
+    peerDependencies:
+      '@trpc/client': ^10.0.0
+      '@trpc/server': ^10.0.0
+      solid-js: ^1.5.7
+      solid-start: ^0.2.1
+    dependencies:
+      '@trpc/client': 10.33.0(@trpc/server@10.33.0)
+      '@trpc/server': 10.33.0
+      solid-js: 1.7.6
+      solid-start: 0.2.26(@solidjs/meta@0.28.5)(@solidjs/router@0.8.2)(solid-js@1.7.6)(solid-start-node@0.2.26)(solid-start-vercel@0.2.26)(vite@4.3.9)
+    dev: false
+
   /solid-start-vercel@0.2.26(solid-start@0.2.26)(vite@4.3.9):
     resolution: {integrity: sha512-wSw2+P7xhAvh0+rgeogVl1PO052hgLbL7B//0JYnEd/M1eWSK0wcT0VgiExkbZUSouWQpLY1f0n1RYswBzpjWw==}
     peerDependencies:
@@ -9311,7 +9328,7 @@ packages:
     transitivePeerDependencies:
       - supports-color
 
-  /solid-trpc@0.0.11-rc.2(@tanstack/solid-query@4.24.4)(@trpc/client@10.11.0)(@trpc/server@10.11.0)(solid-js@1.7.6):
+  /solid-trpc@0.0.11-rc.2(@tanstack/solid-query@4.24.4)(@trpc/client@10.33.0)(@trpc/server@10.33.0)(solid-js@1.7.6):
     resolution: {integrity: sha512-hmxf1svB6qf40t81WFMT9329Je7T+hF0/kfLZH/XSkT3jtzjjI8PeZMjc3CRFpMY/BubQQ0gWCFpUhxvlnNl+w==}
     peerDependencies:
       '@tanstack/solid-query': ^4.6.1
@@ -9320,8 +9337,8 @@ packages:
       solid-js: ^1.5.3
     dependencies:
       '@tanstack/solid-query': 4.24.4(solid-js@1.7.6)
-      '@trpc/client': 10.11.0(@trpc/server@10.11.0)
-      '@trpc/server': 10.11.0
+      '@trpc/client': 10.33.0(@trpc/server@10.33.0)
+      '@trpc/server': 10.33.0
       solid-js: 1.7.6
     dev: false
 

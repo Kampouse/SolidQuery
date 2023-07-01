@@ -1,8 +1,6 @@
 import { A  } from "@solidjs/router";
 import {CounterContext } from "~/components/Providers/Provider";
 import {For,createResource,createSignal } from "solid-js";
-import { client, } from "~/lib/trpc/client";
-import {Issue } from "~/lib/trpc/types";
 import {useRouteData } from "solid-start";
 import {useContext } from "solid-js";
 import { QueryClient, createQuery } from "@tanstack/solid-query";
@@ -38,12 +36,9 @@ export default function IssuesList() {
     const queryClient = new QueryClient();
     const [counter ] = useContext(CounterContext);
     const  [page, setPage] = createSignal(0);
-    const [list,setList] =  createSignal<Issue[]>([]);
     const getIssues = async () => {
         createQuery(() => ["page-0" + page(), counter.count()], async () => {
-            const queryContent =     await client.getIssues.query();
-            setList(queryContent);
-            return queryContent;
+
         });
     };
     getIssues();
