@@ -34,7 +34,7 @@ const InputField = (props: { field: Fields, field_arias: string, validity: boole
 }
 
 export default function Form() {
-     trpc.hello.query({ name : "world" })
+     trpc.secret.query().catch((e) => console.log(e))
     
     const [formState, setFormState] = createStore<formy>({
         "name": "",

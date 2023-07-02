@@ -11,6 +11,6 @@ export default router({
       return Math.floor(Math.random() * 100) / input.num
     }),
   secret: protectedProcedure.query(({ ctx }) => {
-    return `This is top secret - ${ctx.user.displayName}`
+    return `This is top secret - ${ctx.user}`
   }),
 })
