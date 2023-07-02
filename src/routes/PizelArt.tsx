@@ -47,8 +47,8 @@ const Block = (props: { index: number }) => {
             current_color: Block().current_color
         })
     }
-    return <div onClick={() => SetCurrent(props.index)}
-        class={"w-10 h-10 " + current(props.index)}>
+    return <div onClick={() => SetCurrent()}
+        class={"w-10 h-10 " + current()}>
     </div>
 }
 

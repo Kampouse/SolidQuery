@@ -1,4 +1,4 @@
-import  { createContext, createSignal } from "solid-js";
+import  { createContext, createSignal,Accessor,Setter } from "solid-js";
 import { JSX } from "solid-js";
 import { createStore } from "solid-js/store";
 
@@ -13,20 +13,24 @@ type  Blocks  = {
     blocks: string[] 
 }
 
+type ColorContext= [Accessor< Blocks>, Setter<Blocks>]
 
 const fill = () => {
      return new Array(100).fill("bg-red-500");
 }
-const [Block, SetBlock] = createSignal<Blocks> 
+const [Block, SetBlock] = createSignal 
 ({blocks : fill(),current_color:"bg-gray-900"  } )
 
-export const BlockContext = createContext([Block,SetBlock]);
+
+const ColorArrContextType = [Block, SetBlock];
+
+
+export const BlockContext = createContext<  ColorContext >([Block,SetBlock]);
 export function BlockProvider(props: { children: JSX.Element}) {
     const [state, setState] = createStore(Block);
 
     return (
-       <BlockContext.Provider 
-            value={[Block,SetBlock]}>
+       <BlockContext.Provider value={[Block,SetBlock]}>
             {props.children}
         </ BlockContext.Provider>
     );
