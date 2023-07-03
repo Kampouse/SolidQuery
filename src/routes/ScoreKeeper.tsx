@@ -1,6 +1,5 @@
 import { createSignal, createEffect } from "solid-js"
 import { Title } from "solid-start";
-import { BaseLayout } from "./index"
 type ButtonProps = {
     toggleButton: () => void
     title: string
@@ -27,7 +26,7 @@ export default function ScoreKeeper() {
         setScore2(score())
     })
     return (
-        <BaseLayout>
+        <div>
             <Title> Score Keeper </Title>
             <div class=" flex flex-col items-center justify-center h-full">
                 <h1 class="text-4xl font-bold   transition duration-900"> Score Keeper {score2()}  </h1>
@@ -37,6 +36,6 @@ export default function ScoreKeeper() {
                     <Button toggleButton={() => Reset()} title="Reset score" />
                 </div>
             </div>
-        </BaseLayout>
+        </div>
     )
 }

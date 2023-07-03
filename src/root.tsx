@@ -1,5 +1,6 @@
 // @refresh reload
 import { Routes } from "@solidjs/router";
+import  { BaseLayout } from "./routes";
 import { Suspense } from "solid-js";
 import {
     Body,
@@ -13,6 +14,7 @@ import {
 import { ErrorBoundary } from "solid-start/error-boundary";
 import { QueryClient, QueryClientProvider, createQuery } from "@tanstack/solid-query";
 import "./index.css";
+import  { UserProvider } from "./components/Providers/Provider"; 
 const queryClient = new QueryClient();
 export default function Root() {
     return (
@@ -26,13 +28,16 @@ export default function Root() {
                 <div class=" m-3 ">
                     <Suspense>
                         <ErrorBoundary>
+                        <UserProvider>
                             <QueryClientProvider client={queryClient}>
-                                <div >
+                                     
+                                <BaseLayout >
                                     <Routes>
                                         <FileRoutes />
                                     </Routes>
-                                </div>
+                                </BaseLayout>
                             </QueryClientProvider>
+                            </UserProvider>
                         </ErrorBoundary>
                     </Suspense>
                     <Scripts />

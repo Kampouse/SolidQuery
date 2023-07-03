@@ -19,7 +19,7 @@ export default function DarkMode() {
 
 
     return (
-             <BaseLayout> 
+             <div> 
     <Title> Dark Mode </Title>
         <div class={color() + " transition duration-500  rounded-xl "}>
             <div class={"  flex flex-col items-center justify-center w-full h-[38rem] border-2 rounded-lg " + borderColor()}>
@@ -28,6 +28,6 @@ export default function DarkMode() {
                 <button class={"px-4 py-2 mt-4 text-white rounded " + buttonColor() + " hover:scale-110 transition duration-200"} onClick={toggleTheme}>Toggle Theme</button>
             </div>
         </div>
-            </BaseLayout> 
+            </div> 
     );
 }

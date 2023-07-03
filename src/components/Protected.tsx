@@ -42,6 +42,7 @@ export const Secret = (Comp: IProtectedComponent) => {
           throw redirect("/");
         }
         if  (session.user.email !== "jpmartel98@gmail.com") {
+            console.log("not authorized", session.user.email)
           throw redirect("/");
         }
         return session;

@@ -6,7 +6,7 @@ import { BlockContext, BlockProvider } from "~/components/Providers/Provider";
 export default function PizelArt() {
     const colors = ["bg-red-500", "bg-blue-500", "bg-green-500", "bg-yellow-500", "bg-pink-500", "bg-purple-500", "bg-indigo-500"];
     return (
-        <BaseLayout>
+        <div>
             <BlockProvider>
                 <Title> Pizel Art</Title>
                 <div class="bg- bg flex flex-row gap-2 mb-2 justify-center">
@@ -28,10 +28,11 @@ export default function PizelArt() {
                     </For>
                 </div>
             </BlockProvider>
-        </BaseLayout>)
+        </div>)
 }
 const Block = (props: { index: number }) => {
     const [Block, SetBlock] = useContext(BlockContext);
+     
     const current = () => {
         return Block().blocks.at(props.index)
     }

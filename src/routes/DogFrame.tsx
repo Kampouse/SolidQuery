@@ -36,7 +36,7 @@ export default function DogFrame() {
         refetch()
     }
     return (
-        <BaseLayout>
+        <div>
             <Title> Dog Frame </Title>
             <div class="flex flex-col items-center justify-center h-full" >
                 <ErrorBoundary fallback={<SadDog handler={clickHandler} />}>
@@ -53,6 +53,6 @@ export default function DogFrame() {
                 </Show>
                   </ErrorBoundary>
             </div>
-        </BaseLayout>
+        </div>
     )
 }

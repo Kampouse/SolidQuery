@@ -80,7 +80,6 @@ export default function Form() {
     const submit = (e: Event) => {
 
         e.preventDefault()
-        const  output = GET()
         const formData = new FormData(e.target as HTMLFormElement);
         const data = Object.fromEntries(formData.entries()) as formy
         setError([])
@@ -92,7 +91,7 @@ export default function Form() {
     const validity = (field: Fields) => errorField(field).length === 0 ? true : false
     const fields = ["name", "email", "password", "password-second"] as const
     return (
-        <BaseLayout>
+        <div>
             <div class="flex flex flex-col items-center justify-center">
                 <div class={"flex flex-col items-center justify-center w-3/5 h-[38rem] border-1 rounded-lg bg-[#396789] border border-gray-900 "}>
                     <form aria-label="register form"
@@ -117,7 +116,7 @@ export default function Form() {
                 </div>
 
             </div>
-        </BaseLayout>
+        </div>
 
     )
 }
