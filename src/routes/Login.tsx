@@ -3,7 +3,6 @@ import { UserProvider,UserContext,Session } from "~/components/Providers/Provide
 import { Title } from "solid-start"
 import { signIn, signOut } from "@auth/solid-start/client"
 import { useNavigate } from "@solidjs/router";
-import { BaseLayout } from "./index"
 import { authOpts } from "~/server/auth";
 import { getSession} from "@auth/solid-start"
 import { createServerData$, redirect } from "solid-start/server";

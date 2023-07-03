@@ -1,6 +1,6 @@
 // @refresh reload
 import { Routes } from "@solidjs/router";
-import  { BaseLayout } from "./routes";
+import  { BaseLayout } from "~/components/Layout";
 import { Suspense } from "solid-js";
 import {
     Body,

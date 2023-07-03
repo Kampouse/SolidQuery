@@ -1,8 +1,6 @@
 import { type SolidAuthConfig } from "@auth/solid-start"
 import { prisma } from "~/db/client"
-import crypto from 'crypto';
 import GitHub from "@auth/core/providers/github"
-import { redirect } from "solid-start";
 declare module "@auth/core/types" {
   export interface Session {
     user?: {

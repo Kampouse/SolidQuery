@@ -1,57 +1,6 @@
 import "./index.css";
-import { A } from "@solidjs/router";
-
 import { createSignal, For, JSX, useContext, onMount } from "solid-js";
 import { Title } from "solid-start";
-import { signIn, signOut } from "@auth/solid-start/client"
-
-import { UserProvider, UserContext, Session } from "~/components/Providers/Provider";
-import { useSession } from "./Login";
-
-//get routes from the routes folder probaly should not to this but ... lazy af
-const routes = import.meta.globEager("../routes/*.tsx")
-const routeNames = Object.keys(routes).map((route) => route.replace("../routes/", "").replace(".tsx", "").replace("./", ""))
-export const Navbar = (props: { fields: string[] }) => {
-    const ishome = (route: string) => route === "/Home" ? "/" : route
-    return (
-        <div class="  header col-span-12 rounded-lg  bg-inner-blue  mb-1 ml-2  p-4 justify-center">
-            <button class="  text-black rounded-lg   border border-inner-blue p-4">
-                <A href="/"> home  </A> </button>
-
-            <For each={props.fields}>
-                {(field) => (
-                    <button class="  text-black rounded-lg   border border-inner-blue  hidden md:inline lg:inline p-4">
-                        <A href={ishome("/" + field)}> {field} </A> </button>
-
-                )}
-            </For>
-        </div>
-    )
-}
-
-export const BaseLayout = (props: { children: JSX.Element }) => {
-    const [user, setUser] = useContext(UserContext);
-     const  useLocalStorage = (key: string, initialValue: any) => {
-         
-    }
-
-
-
-    const session = useSession()
-     if (session()) {
-        const userdata: Session = {
-           name: session()?.user?.name as string,
-           email: session()?.user?.email as string
-    }
-        setUser(userdata)
-        console.log(userdata)
-   }
-    return (<>
-        <Navbar fields={routeNames} />
-        {props.children}
-    </>)
-
-}
 
 const DropDown = () => {
     const [Drop, SetDrop] = createSignal("hidden");

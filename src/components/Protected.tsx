@@ -2,10 +2,12 @@
 import { type Session } from "@auth/core/types";
 import { getSession } from "@auth/solid-start";
 import { Component, Show } from "solid-js";
-import { useRouteData } from "solid-start";
+
+import { JSX, useContext,  } from "solid-js";
+import { useRouteData,  } from "solid-start";
 import { createServerData$, redirect } from "solid-start/server";
 import { authOpts } from "../server/auth";
-type IProtectedComponent = Component<Session>;
+type IProtectedComponent = Component<Session>
 export const Protected = (Comp: IProtectedComponent) => {
   const routeData = () => {
     return createServerData$(
@@ -26,14 +28,14 @@ export const Protected = (Comp: IProtectedComponent) => {
       const session = useRouteData<typeof routeData>();
       return (
         <Show when={session()} keyed>
-          {(sess) => <Comp {...sess} />}
+          {(sess) => <Comp {...sess} /> }
         </Show>
       );
     },
   };
 };
 
-export const Secret = (Comp: IProtectedComponent) => {
+export const Secret = (Comp: IProtectedComponent ) => {
   const routeData = () => {
     return createServerData$(
       async (_, event) => {
