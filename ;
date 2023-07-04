@@ -1,0 +1,39 @@
+// routes/protected.tsx
+import {JSX } from "solid-js";
+import { Protected  } from "~/components/Protected";
+
+export const { routeData, Page } = Protected((session) => {
+   console.log (session)
+   console.log (session.user?.image )
+  const client_image = session.user?.image ? session.user?.image : "https://avatars.githubusercontent.com/u/10047061?v=4"
+  const client_name = session.user?.name ? session.user?.name : "John Doe"
+  
+
+  return (
+
+<div class="max-w-sm rounded overflow-hidden shadow-lg bg-gray-100 m-3  ">
+  <img class="w-full" src={client_image} alt="Sunset in the mountains"/>
+  <div class="px-6 py-4">
+    <div class="font-bold text-xl mb-2">{client_name}</div>
+    <p class="text-gray-700 text-base">
+
+    describe yourself here since your cool right 
+
+        </p>
+  </div>
+  <div class="px-6 pt-4 pb-2">
+    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#code</span>
+    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#solidjs</span>
+    <span class="inline-block bg-gray-200 rounded-full px-3 py-1 text-sm font-semibold text-gray-700 mr-2 mb-2">#tailwind</span>
+  </div>
+</div>
+
+
+
+
+
+
+  );
+});
+
+export default Page;

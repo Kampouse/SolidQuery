@@ -2,7 +2,7 @@
   "name": "solid-query",
   "scripts": {
     "dev": "solid-start dev --port 5454",
-    "dev-db": "concurrently \"solid-start dev --port 5454\" \" pscale connect first-db initial-setup --port 3309 \"",
+    "dev-db": "concurrently \"solid-start dev --port 5454\" \" pscale connect first-db initial-setup --port 3309 \" \" sleep 3 && prisma db push\"",
     "build": "solid-start build",
     "start": "solid-start dev --port 5454",
     "test": "vitest run",

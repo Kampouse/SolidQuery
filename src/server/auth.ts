@@ -20,7 +20,8 @@ export const authOpts: SolidAuthConfig = {
       return session;
     },
 
-    async signIn({ profile }) {
+    async signIn({ profile,user ,account}) {
+       console.log( user,account,profile)
       if (profile) {
         try {
           if (profile.name && profile.node_id) {
@@ -39,6 +40,13 @@ export const authOpts: SolidAuthConfig = {
 
             },
           })
+         await prisma.profile.create({
+          data  : {
+           user : { connect : { email : profile.node_id as string } },
+           bio : profile?.bio as string || ""       
+        }
+          
+        })
         }
         catch (e) {
           console.log(e)

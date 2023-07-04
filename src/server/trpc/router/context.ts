@@ -17,7 +17,7 @@ const user = { id: Tempuser?.id, name: Tempuser?.name, email: Tempuser?.email,va
     }
   }
    const user = { id: "anonymous", name: "anonymous", email: "anonymous",valid : false }
-  return { ...opts, user }
+  return { ...opts, user,prisma }
 
 }
 
