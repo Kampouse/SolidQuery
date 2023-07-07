@@ -25,7 +25,7 @@ export default function Root() {
                 <Meta name="viewport" content="width=device-width, initial-scale=1" />
             </Head>
             <Body>
-                <div class=" m-3 ">
+                <div>
                     <Suspense>
                         <ErrorBoundary>
                         <UserProvider>

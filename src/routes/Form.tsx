@@ -82,6 +82,7 @@ export default function Form() {
         e.preventDefault()
         const formData = new FormData(e.target as HTMLFormElement);
         const data = Object.fromEntries(formData.entries()) as formy
+
         setError([])
         setFormState(data);
         verifForm();

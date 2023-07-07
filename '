@@ -17,3 +17,24 @@ Body {
   radial-gradient(ellipse at 100%,  #050000, transparent);
   height: 110vh;
 }
+
+.stuff {
+   div {
+     filter:blur(3);
+
+   }
+
+
+
+
+}
+
+
+
+
+
+
+
+
+
+
