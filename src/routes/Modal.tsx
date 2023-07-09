@@ -22,14 +22,14 @@ const MesssageWithAvatar = (props: { username:string ,  message: string, avatar:
             <div class="flex flex-row  h-fit " >
                  <div class="mt-1"> 
                      
-                <img class="w-[2rem] h-[2rem]  cursor-pointer  rounded-full" src="https://i.pravatar.cc/300" alt="user avatar" />
+                <img class="w-[2rem] h-[2rem] border-2 hover:border-blue-600 border-gray-900   cursor-pointer  rounded-full" src="https://i.pravatar.cc/300" alt="user avatar" />
                 <Show when={props.last}>
-                    <div  class="w-0.5 h-full bg-gray-600 ml-[0.85rem] "></div>
+                    <div  class="w-0.5 h-full bg-blue-700 ml-[0.85rem] "></div>
                 </Show>
                 </div>
                  <div class="flex flex-col">  
-                <p class="text-white justify-center hover:underline hover:cursor-pointer  ml-2 mt-2 w-fit">{props.username}</p>
-            <p class="text-gray-100 ml-0 m-3 p-4 rounded-lg ml-4 text-sm bg-gray-800 border border-gray-600 w-96">{props.message} </p>
+                <p class="text-gray-300 justify-center hover:underline hover:decoration-blue-600  hover:cursor-pointer  ml-2 mt-2 w-fit">{props.username}</p>
+            <p class="text-gray-400 ml-0 m-3 p-4 rounded-lg ml-4 text-sm bg-gray-800 border border-gray-600 hover:border-blue-600  w-96">{props.message} </p>
                </div>
                  
             </div>
@@ -57,8 +57,8 @@ const ModalChat = (props: { open: () => boolean }) => {
         }
     }
     return (
-        <dialog class="fixed inset-x-1/4  inset-y-1/4 w-[45em] h-[25em] pb-[5em] bg-gray-900 border-2 rounded-lg border border-gray-800  transition duration-500 ml-2" open={props.open()}>
-            <div class="flex flex-col  h-full overflow-y-scroll" ref={ScrollRef} >
+        <dialog class="fixed inset-x-1/4  inset-y-1/4 w-[35em] h-[25em] pb-[5em] bg-gray-900 border-2 rounded-lg border border-gray-800  transition duration-500 ml-2" open={props.open()}>
+            <div class="flex flex-col  h-full snap-mandatory scroll-mx-2.5 snap-y overflow-y-scroll" ref={ScrollRef} >
                 <For each={Messages()}>
                     {(message,index) => 
                     <MesssageWithAvatar  
@@ -69,10 +69,13 @@ const ModalChat = (props: { open: () => boolean }) => {
                     }
                 </For>
                 <form onSubmit={(e) => submitForm(e)} >
-                    <div>  <input ref={inputRef}  oninput={(e) => SetText(e.target.value)}  
+                    <div>  <input  ref={inputRef}  oninput={(e) => SetText(e.target.value)}  
                         type="text" 
-                        class="fixed bottom-[20.5%] left-[25%]  
-                        ml-[3.75rem] w-[35em] h-10 px-3 ml-3  text-base text-gray-700  border-gray-600 placeholder-gray-600 border rounded-lg focus:shadow-outline"
+                        class="fixed bg-gray-800 border   text-slate-300 bort bottom-[20.5%] left-[25%]  
+                        ml-[4.8rem] w-[25em] h-10 px-3 ml-3  text-base text-gray-700  border-gray-600 placeholder-gray-600 border rounded-lg 
+                        hover:cursor-pointer
+                        hover:border-blue-600 hover:border-2 hover:border-opacity-100 hover:shadow-lg hover:ring-1 hover:ring-gray-600 hover:ring-opacity-50
+                        focus:outline-none focus:border-blue-600 focus:ri"
                         placeholder="Your message" /></div>
                 </form>
             </div>
